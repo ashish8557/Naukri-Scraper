@@ -46,7 +46,8 @@ def scrape_naukri_jobs(driver, num_pages):
     }
 
     for i in range(num_pages):
-        driver.get(f"https://www.naukri.com/{job_role}-jobs-{i}")
+        job_role_url = job_role.replace(" ", "-")
+        driver.get(f"https://www.naukri.com/{job_role_url}-jobs-{i}")
         time.sleep(3)  # Wait for the page to load
 
         lst = driver.find_elements(By.CLASS_NAME, "srp-jobtuple-wrapper")
